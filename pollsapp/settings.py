@@ -74,13 +74,15 @@ WSGI_APPLICATION = 'pollsapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pollsapp',
-        'HOST': 'localhost',
-        'USER': 'oscar.rodriguez',
-        'PASSWORD': ''
+        'NAME': 'postgres',                      
+        'USER': 'postgres',
+        'PASSWORD': POSTGRES_PASSWORD,
+        'HOST': 'db',
+        'PORT': '5432', 
     }
 }
 
